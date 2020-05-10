@@ -20,5 +20,5 @@ margin_bottom = 400.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="gui_input" from="." to="." method="_on_InventoryManager_gui_input"]
 [connection signal="gui_input" from="." to="." method="_on_Inventory_gui_input"]
+[connection signal="gui_input" from="." to="." method="_on_InventoryManager_gui_input"]

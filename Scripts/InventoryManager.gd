@@ -4,6 +4,7 @@ extends Node
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+var rng
 var InventoryScript = preload("res://Scripts/Inventory.gd")
 var ItemScript = preload("res://Entities/Item.tscn")
 var flavour_display
@@ -17,6 +18,7 @@ var itemInRange: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	rng = RandomNumberGenerator.new()
 	Inventory = get_node("Inventory")
 	ItemGrab = get_node("RandomDrop")
 	flavour_display = get_node("Flavour")
@@ -61,7 +63,8 @@ func dropItem(drop):
 	print(player.get_parent())
 	newItem.itemID = drop.ID
 	player.get_parent().add_child(newItem)
-	newItem.set_position(player.get_position())
+	var offset = Vector2(rng.randf_range(-5,5),rng.randf_range(-5,5))
+	newItem.set_position(player.get_position()+offset)
 	
 
 func _physics_process(delta):
@@ -69,9 +72,11 @@ func _physics_process(delta):
 		if(inventory_open):
 			Inventory.hide()
 			ItemGrab.hide()
+			flavour_display.hide()
 		else:
 			Inventory.show()
 			if itemInRange:
+				flavour_display.show()
 				ItemGrab.show()
 		inventory_open = !inventory_open
 	
@@ -85,9 +90,11 @@ func togglePickup(state: bool):
 		update_flavour_text()
 		if inventory_open:
 			ItemGrab.show()
+			flavour_display.show()
 	else:
 		if inventory_open:
 			ItemGrab.hide()
+			flavour_display.hide()
 	itemInRange = state
 
 func _on_ItemRange_body_exited(body):
