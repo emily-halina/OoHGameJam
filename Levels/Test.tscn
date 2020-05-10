@@ -12,14 +12,14 @@
 position = Vector2( 595.283, -18.1766 )
 
 [node name="Item" parent="." instance=ExtResource( 2 )]
-position = Vector2( -293.501, 542.649 )
+position = Vector2( -316.828, 256.586 )
 
 [node name="Item2" parent="." instance=ExtResource( 2 )]
-position = Vector2( -482.151, 470.88 )
+position = Vector2( -439.18, 252.343 )
 itemID = 2
 
 [node name="Item3" parent="." instance=ExtResource( 2 )]
-position = Vector2( -80.2438, 593.912 )
+position = Vector2( -196.879, 256.284 )
 itemID = 3
 
 [node name="Puddle" parent="." instance=ExtResource( 3 )]
