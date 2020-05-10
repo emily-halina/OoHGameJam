@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Entities/Enemy.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/CatHead.png" type="Texture" id=2]
 
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 47.3896, 61.7267 )
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 31.6017, 34.3614 )
 
 [node name="Enemy" type="KinematicBody2D"]
 position = Vector2( 129.978, 76.102 )
@@ -14,12 +14,12 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 7.62939e-06, -0.187828 )
-scale = Vector2( 0.503713, 0.459923 )
+position = Vector2( 2.78782, -4.24283 )
+scale = Vector2( 0.540155, 0.508486 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Patrol" type="Timer" parent="."]
 wait_time = 5.0
