@@ -34,6 +34,8 @@ Arrow Keys to Move
 Enter to open Inventory
 Click and drag items in/out of your inventory
 
+Items you can pick up have orange in them!
+
 Press Enter to start"
 
 [node name="gheherhrhe2" type="RichTextLabel" parent="."]

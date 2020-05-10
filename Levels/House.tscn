@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Levels/House.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/UncomfyRoom.png" type="Texture" id=2]
 [ext_resource path="res://Entities/Item.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Entities/ComfortArea.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Entities/Enemy.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1234.78, 23.5059 )
@@ -121,4 +122,13 @@ shape = SubResource( 7 )
 
 [node name="ComfortArea" parent="." instance=ExtResource( 5 )]
 position = Vector2( 765.026, -696.669 )
+
+[node name="Enemy" parent="." instance=ExtResource( 6 )]
+position = Vector2( 1041.53, 629.486 )
+
+[node name="Enemy3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 838.245, 840.836 )
+
+[node name="Enemy2" parent="." instance=ExtResource( 6 )]
+position = Vector2( -3.93158, 902.144 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
