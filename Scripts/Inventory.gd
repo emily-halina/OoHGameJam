@@ -3,6 +3,7 @@ extends Control
 # var a = 2
 # var b = "text"
 
+var fillable: bool = true
 var inventory_width =400
 var inventory_height =400
 var tile_width = 4
@@ -48,8 +49,8 @@ func check_if_place():
 		if(sametile and check_valid_placement(location, inventory_list.find(gv.focusedItem)) or check_valid_placement(location,-1)):
 			gv.focusedItem.inventory.remove_item(gv.focusedItem.inventory.inventory_list.find(gv.focusedItem))
 			add_item([location[0]-gv.focusedItem.dragTile[0],location[1]-gv.focusedItem.dragTile[1]],gv.focusedItem)
-						
-	
+			return true
+	return false			
 
 func check_valid_placement(selectedTile: Array, okIndex)-> bool:
 	var checkItem = gv.focusedItem
@@ -63,7 +64,8 @@ func check_valid_placement(selectedTile: Array, okIndex)-> bool:
 	
 	#check if the shape fits correctly
 	
-	
+	if !fillable:
+		return false
 	
 	for x in range(shape.size()):
 		for y in range(shape[0].size()):
@@ -124,6 +126,21 @@ func remove_item(listslot: int):
 	
 	#Slot shenanigans
 	var removed_item = inventory_list[listslot]
+	inventory_list.remove(listslot)
+	for x in range(tile_width):
+		for y in range(tile_height):
+			if inventory_tiles[x][y] == listslot:
+				inventory_tiles[x][y] = -1
+			if inventory_tiles[x][y] >listslot:
+				inventory_tiles[x][y]-=1
+	removed_item.inventory.remove_child(removed_item)
+
+#Method to remove an item with a specific object
+func remove_item_object(obj):
+	
+	#Remove Child
+	var listslot = inventory_list.find(obj)
+	var removed_item = obj
 	inventory_list.remove(listslot)
 	for x in range(tile_width):
 		for y in range(tile_height):

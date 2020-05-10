@@ -1,32 +1,13 @@
 extends TextureRect
 
-#Store information about items here
-const ITEMS = {
-	
-	#test item
-	1:{
-		"icon": "res://L.png",
-		"shape": [[0,0,1],[1,1,1]]
-	},
-	2:{
-		"icon": "res://i.png",
-		"shape": [[1,1,1]]
-	},
-	3:{
-		"icon": "res://m.png",
-		"shape": [[1]]
-	},
-	
-	"error":{
-		"icon": "res://L.png",
-		"shape": [[0,0,1],[1,1,1]]
-	}	
-	
-}
 
+
+var ID
 var inventory
 var image_path
 var dimensions
+var flavour_text
+var sanity
 var originNode: Array
 var dragTile: Array
 var OWOffset: Vector2
@@ -34,10 +15,13 @@ var drag: bool = false
 
 #constructor for items
 func _init(item_id):
-	var properties = ITEMS[item_id]
+	var properties = gv.ITEMS[item_id]
+	ID = item_id
 	image_path = properties["icon"]
 	dimensions = properties["shape"]
-
+	flavour_text = properties["flavour"]
+	sanity = properties["comfort"]
+	
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var image = load(image_path)
@@ -72,4 +56,4 @@ func _process(delta):
 		set_position(new_position)
 		
 		#check if mouse button was released when an item is selected
-		
+
