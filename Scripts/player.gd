@@ -12,12 +12,13 @@ var inventory
 onready var sprite = get_node('Sprite')
 var animation = 'StaticFront'
 
+onready var enemy = get_tree().get_root().find_node('Enemy', true, false)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	inventory = get_node("Camera2D/CanvasLayer/InventoryManager")
-	pass # Replace with function body.
-
-
+	if enemy != null:
+		enemy.connect('contact', self, '_on_enemy_contact')
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -74,3 +75,7 @@ func set_animation(direction):
 			a += animation.right(4)
 	sprite.play(a)
 	return a
+
+func _on_enemy_contact():
+	print('it works')
+	# here is where we will drop all the items if there are items in the player's inventory

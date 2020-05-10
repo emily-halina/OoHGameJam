@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Entities/Enemy.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 47.3896, 61.7267 )
+
+[node name="Enemy" type="KinematicBody2D"]
+position = Vector2( 129.978, 76.102 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 7.62939e-06, -0.187828 )
+scale = Vector2( 0.503713, 0.459923 )
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="Patrol" type="Timer" parent="."]
+wait_time = 5.0
+[connection signal="timeout" from="Patrol" to="." method="_on_Patrol_timeout"]
