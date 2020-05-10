@@ -6,12 +6,15 @@ var cozy = false
 export var speed = 300.0
 var _velocity = Vector2.ZERO
 var direction = Vector2.ZERO
+var inventory
+
 
 onready var sprite = get_node('Sprite')
 var animation = 'StaticFront'
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	inventory = get_node("Camera2D/CanvasLayer/InventoryManager")
 	pass # Replace with function body.
 
 

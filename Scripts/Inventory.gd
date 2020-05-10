@@ -3,11 +3,10 @@ extends Control
 # var a = 2
 # var b = "text"
 
-var inventory_width =500
-var inventory_height =500
-var tile_width = 5
-var tile_height = 5
-var inventory_open = false
+var inventory_width =400
+var inventory_height =400
+var tile_width = 4
+var tile_height = 4
 var inventory_tiles
 var inventory_list =[]
 var ItemScript = preload("res://Scripts/InventoryTile.gd")
@@ -15,32 +14,28 @@ var ItemScript = preload("res://Scripts/InventoryTile.gd")
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
+	hide()
 	print(rect_size)
 	#get_node("InventoryBackground").set_size(inventory_width,inventory_height)
 	inventory_tiles = create_array_2d(tile_width,tile_height)
 	
-	#Creating and adding a test item
-	var testItem = ItemScript.new(1)
-	var testItem2 = ItemScript.new(3)
-	add_item([0,0],testItem)
-	add_item([0,0],testItem2)
-	#remove_item(0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("ui_accept"):
-		if(inventory_open):
-			hide()
-		else:
-			show()
-		inventory_open = !inventory_open
 	
 	if Input.is_action_just_released("inventory_select"):
 			print("released")
 			if(gv.focusedItem != null):
 				get_parent().checkItem()
 				
+func isEmptyGrid()->bool:
+	for x in range(tile_width):
+		for y in range(tile_height):
+			if(inventory_tiles[x][y] != -1):
+				return false
 	
+	return true
+
 	
 func check_if_place():
 	var sametile: bool = gv.focusedItem.inventory == self
@@ -85,6 +80,7 @@ func _on_InventoryManager_gui_input(event):
 	# check if mouse button was pressed on the inventories
 	if event is InputEventMouseButton and event.button_index == BUTTON_LEFT and event.pressed:
 		var selected_index = get_inventory_slot_selected(get_global_mouse_position())
+		print(selected_index)
 		if inventory_tiles[selected_index[0]][selected_index[1]] != -1:
 			var selected_item = inventory_list[inventory_tiles[selected_index[0]][selected_index[1]]]
 			selected_item.startHover(selected_index,event.position)
@@ -171,8 +167,25 @@ func resize_inventory(columns,rows):
 	inventory_width = columns*100
 	inventory_height = rows*100
 	get_node("InventoryBackground").set_size(Vector2(inventory_width,inventory_height))
+	
+	while inventory_list.size()>0:
+		remove_item(0)
+	
 	inventory_tiles = create_array_2d(tile_width,tile_height)
 
+func resize_inventory_and_add(columns,rows,ItemID):
+	tile_width = columns
+	tile_height = rows
+	inventory_width = columns*100
+	inventory_height = rows*100
+	get_node("InventoryBackground").set_size(Vector2(inventory_width,inventory_height))
+	
+	while inventory_list.size()>0:
+		remove_item(0)
+	
+	inventory_tiles = create_array_2d(tile_width,tile_height)
+	var add = ItemScript.new(ItemID)
+	add_item([0,0],add)
 
 
 func _on_Inventory_gui_input(event):
