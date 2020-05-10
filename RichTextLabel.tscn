@@ -3,15 +3,16 @@
 [sub_resource type="GDScript" id=1]
 script/source = "extends RichTextLabel
 var seconds = 0
-var minutes = 0
+var minutes = 5
 
 func _process(delta):
 	
-	if seconds > 59:
-		minutes += 1
-		seconds = 0
-	if minutes > 59:
+	if seconds < 1:
+		minutes -= 1
+		seconds = 59
+	if minutes < 1:
 		minutes = 0
+		print(\"time's up.\")
 		
 	set_text(str(minutes)+\":\"+str(seconds))
 	
@@ -19,7 +20,7 @@ func _process(delta):
 
 
 func _on_Timer_timeout():
-	seconds += 1
+	seconds -= 1
 	pass
 "
 
@@ -28,7 +29,7 @@ anchor_left = 1.008
 anchor_top = -0.013
 anchor_right = 1.008
 anchor_bottom = -0.013
-margin_left = -32.192
+margin_left = -40.192
 margin_top = 7.8
 margin_right = 47.808
 margin_bottom = 71.8
