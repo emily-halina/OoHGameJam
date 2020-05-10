@@ -14,6 +14,7 @@ var animation = 'StaticFront'
 onready var enemy = get_tree().get_root().find_node('Enemy', true, false)
 onready var inventory = get_tree().get_root().find_node('InventoryManager')
 
+onready var meter = get_node('Comfort meter').get_node('AnimatedSprite')
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# make player blue when not in comfort zone
@@ -35,7 +36,15 @@ func _physics_process(delta: float)-> void:
 		gv.comfort_meter -= 1
 	else:
 		gv.comfort_meter = 1000
-	if gv.comfort_meter == 0:
+	if gv.comfort_meter > 750:
+		meter.play('barfull')
+	elif gv.comfort_meter > 500:
+		meter.play('barmeh')
+	elif gv.comfort_meter > 250:
+		meter.play('barmedium')
+	elif gv.comfort_meter > 0:
+		meter.play('barlow')
+	else:
 		get_tree().change_scene('res://Levels/GameOver.tscn')
 
 
