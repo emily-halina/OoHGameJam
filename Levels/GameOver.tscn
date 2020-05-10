@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Levels/GameOver.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Grasstime.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/911Fonts.com_ComicSansMSRegular__-_911fonts.com_fonts_BpCS.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 3 )
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -895.03, 512.592 )
+texture = ExtResource( 2 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 85.5923
+margin_top = 524.85
+margin_right = 386.592
+margin_bottom = 673.85
+custom_fonts/normal_font = SubResource( 1 )
+text = "press enter to retry"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+margin_left = 745.276
+margin_top = 237.799
+margin_right = 1046.28
+margin_bottom = 386.799
+custom_fonts/normal_font = SubResource( 1 )
+text = "you are not comfy"

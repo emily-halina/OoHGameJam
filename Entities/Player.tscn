@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/player.gd" type="Script" id=1]
 [ext_resource path="res://Entities/comfort_meter.gd" type="Script" id=2]
-[ext_resource path="res://Sprites/PlayerSprite/Static/StaticLeft.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/PlayerSprite/Static/StaticRight.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/PlayerSprite/Static/StaticRightishFront.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/PlayerSprite/WalkRightBack/WalkRightBack-1.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/PlayerSprite/WalkRightBack/WalkRightBack-2.png" type="Texture" id=6]
@@ -58,14 +58,14 @@
 [ext_resource path="res://Sprites/PlayerSprite/WalkBack/Turnaround-3.png" type="Texture" id=56]
 [ext_resource path="res://Sprites/PlayerSprite/WalkBack/Turnaround-4.png" type="Texture" id=57]
 [ext_resource path="res://Sprites/PlayerSprite/WalkBack/Turnaround-5.png" type="Texture" id=58]
-[ext_resource path="res://Sprites/PlayerSprite/Static/StaticRight.png" type="Texture" id=59]
+[ext_resource path="res://Sprites/PlayerSprite/Static/StaticLeft.png" type="Texture" id=59]
 [ext_resource path="res://Entities/InventoryManager.tscn" type="PackedScene" id=60]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "StaticLeft",
+"name": "StaticRight",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
@@ -140,7 +140,7 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 59 ) ],
 "loop": true,
-"name": "StaticRight",
+"name": "StaticLeft",
 "speed": 5.0
 } ]
 

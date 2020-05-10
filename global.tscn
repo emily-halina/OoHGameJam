@@ -8,6 +8,7 @@
 [node name="forest_song" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 484, 292 )
 stream = ExtResource( 1 )
+volume_db = -2.0
 
 [node name="room_song" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 484, 292 )

@@ -36,7 +36,7 @@ func _physics_process(delta: float)-> void:
 	else:
 		gv.comfort_meter = 1000
 	if gv.comfort_meter == 0:
-		print('ur dead kid')
+		get_tree().change_scene('res://Levels/GameOver.tscn')
 
 
 func calculate_move_velocity(direction: Vector2)-> Vector2:
