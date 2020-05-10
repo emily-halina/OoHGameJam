@@ -1,7 +1,5 @@
 extends TextureRect
 
-
-
 var ID
 var inventory
 var image_path
@@ -17,6 +15,7 @@ var drag: bool = false
 func _init(item_id):
 	var properties = gv.ITEMS[item_id]
 	ID = item_id
+	
 	image_path = properties["icon"]
 	dimensions = properties["shape"]
 	flavour_text = properties["flavour"]
@@ -25,6 +24,7 @@ func _init(item_id):
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var image = load(image_path)
+	print(get_node("InventoryImage"))
 	set_texture(image)
 	set_scale(Vector2(1,1))
 	pass # Replace with function body.
@@ -35,7 +35,6 @@ func startHover(selectedTile: Array, mouseCoords: Vector2):
 	dragTile[0] = selectedTile[0]-originNode[0]
 	dragTile[1] = selectedTile[1]-originNode[1]
 	OWOffset = get_position()-mouseCoords-get_parent().get_position()
-	
 	
 	
 	gv.focusedItem = self

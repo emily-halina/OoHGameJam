@@ -18,7 +18,10 @@ margin_top = 10.7252
 margin_right = -421.449
 margin_bottom = 10.7252
 
-[node name="RandomDrop" parent="." instance=ExtResource( 2 )]
+[node name="Drag Layer" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="RandomDrop" parent="Drag Layer" instance=ExtResource( 2 )]
 margin_left = 627.989
 margin_top = 6.68079
 margin_right = 203.989

@@ -88,11 +88,6 @@ animations = [ {
 "name": "StaticFront",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 18 ) ],
-"loop": true,
-"name": "StaticLeftFront",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 19 ) ],
 "loop": true,
 "name": "StaticRightBack",
@@ -113,24 +108,19 @@ animations = [ {
 "name": "WalkFront",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "StaticLeftFront",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 34 ) ],
 "loop": true,
 "name": "StaticLeftBack",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ) ],
+"frames": [ ExtResource( 59 ) ],
 "loop": true,
-"name": "WalkLeftFront",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ) ],
-"loop": true,
-"name": "WalkRight",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ) ],
-"loop": true,
-"name": "WalkLeftBack",
+"name": "StaticRight",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ) ],
@@ -138,9 +128,19 @@ animations = [ {
 "name": "WalkBack",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 59 ) ],
+"frames": [ ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ) ],
 "loop": true,
-"name": "StaticRight",
+"name": "WalkLeftFront",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ) ],
+"loop": true,
+"name": "WalkLeftBack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ) ],
+"loop": true,
+"name": "WalkRight",
 "speed": 5.0
 } ]
 
@@ -185,6 +185,7 @@ shape = SubResource( 3 )
 current = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+layer = 2
 
 [node name="InventoryManager" parent="Camera2D/CanvasLayer" instance=ExtResource( 60 )]
 
