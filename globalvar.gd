@@ -9,22 +9,22 @@ const ITEMS = {
 	
 	#test item
 	1:{
-		"icon": "res://L.png",
-		"flavour": "take it",
+		"icon": "res://Sprites/RainbootBlock.png",
+		"flavour": "Don't want wet socks",
 		"comfort": 500,
-		"shape": [[0,0,1],[1,1,1]],
+		"shape": [[0,1],[1,1]],
 		'overworld': 'rain_boots'
 	},
 	2:{
-		"icon": "res://i.png",
-		"flavour": "best tetromino",
+		"icon": "res://Sprites/CatClockBlock.png",
+		"flavour": "meow",
 		"comfort": 300,
 		"shape": [[1,1,1]],
 		'overworld': 'cat_clock'
 	},
 	3:{
 		"icon": "res://m.png",
-		"flavour": "dense",
+		"flavour": "very warm",
 		"comfort": 100,
 		"shape": [[1]],
 		'overworld': 'blanket'
@@ -37,8 +37,8 @@ const ITEMS = {
 		'overworld':'mouse'
 	},
 	5:{
-		"icon":"res://i.png",
-		"flavour":"i'm not a gnelf",
+		"icon":"res://Sprites/GnomeBlock.png",
+		"flavour":"i'm gnot a gnelf",
 		"comfort":3000,
 		"shape":[[1,1,1]],
 		'overworld':'gnome'
