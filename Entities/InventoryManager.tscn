@@ -17,6 +17,7 @@ margin_left = 2.55121
 margin_top = 10.7252
 margin_right = -421.449
 margin_bottom = 10.7252
+main_inventory = true
 
 [node name="Drag Layer" type="CanvasLayer" parent="."]
 layer = 3

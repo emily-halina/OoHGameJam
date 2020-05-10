@@ -43,6 +43,9 @@ margin_right = 1085.33
 margin_bottom = 966.64
 custom_fonts/normal_font = SubResource( 1 )
 text = "\"the dark souls of comfort games\" - IGN"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="gheherhrhe3" type="RichTextLabel" parent="."]
 margin_left = 11.0874
@@ -52,6 +55,9 @@ margin_bottom = 930.982
 custom_fonts/normal_font = SubResource( 1 )
 text = "made with love by
 Ahmad, Boris, Eric, and Stephanie"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
 margin_left = 596.391
