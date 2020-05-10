@@ -1,13 +1,38 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://blood_red_bar.png" type="Texture" id=1]
+[ext_resource path="res://ComfortLvlLow.png" type="Texture" id=1]
+[ext_resource path="res://ComfortLvlLess.png" type="Texture" id=2]
+[ext_resource path="res://ComfortLvlFull.png" type="Texture" id=3]
+[ext_resource path="res://ComfortLvlMedium.png" type="Texture" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "barmeh",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "barlow",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "barmedium",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "barfull",
+"speed": 5.0
+} ]
 
 [node name="Comfort meter" type="NinePatchRect"]
 margin_left = 16.0
 margin_top = 8.0
 margin_right = 184.0
 margin_bottom = 40.0
-texture = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -23,3 +48,10 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 98.751, 15.0737 )
+rotation = 1.56968
+scale = Vector2( 0.462271, 0.406333 )
+frames = SubResource( 1 )
+animation = "barlow"
