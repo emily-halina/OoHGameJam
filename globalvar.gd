@@ -10,19 +10,22 @@ const ITEMS = {
 		"icon": "res://L.png",
 		"flavour": "take it",
 		"comfort": 5,
-		"shape": [[0,0,1],[1,1,1]]
+		"shape": [[0,0,1],[1,1,1]],
+		'overworld': 'rain_boots'
 	},
 	2:{
 		"icon": "res://i.png",
 		"flavour": "best tetromino",
 		"comfort": 3,
-		"shape": [[1,1,1]]
+		"shape": [[1,1,1]],
+		'overworld': 'cat_clock'
 	},
 	3:{
 		"icon": "res://m.png",
 		"flavour": "dense",
 		"comfort": 1,
-		"shape": [[1]]
+		"shape": [[1]],
+		'overworld': 'blanket'
 	},
 	
 	"error":{

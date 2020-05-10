@@ -8,7 +8,8 @@ extends RigidBody2D
 export var itemID = 1
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+
+	get_node('Sprite').play(gv.ITEMS[itemID]['overworld'])
 
 
 

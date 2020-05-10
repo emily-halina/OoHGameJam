@@ -2,28 +2,28 @@
 
 [ext_resource path="res://Levels/Room.gd" type="Script" id=1]
 [ext_resource path="res://Entities/ComfortArea.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Entities/CozyEmptyRoom (1).png" type="Texture" id=3]
+[ext_resource path="res://Sprites/CozyEmptyRoom (1).png" type="Texture" id=3]
 [ext_resource path="res://Entities/Player.tscn" type="PackedScene" id=4]
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 76.1908, 55.3828 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 1234.78, 23.5059 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 32.3782, 551.041 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 114.95, 217.533 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 79.6551, 67.6367 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 141.527, 182.876 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 22.8857, 175.435 )
 
 [node name="Node2D" type="Node2D"]
@@ -40,67 +40,68 @@ __meta__ = {
 }
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-position = Vector2( 664.899, 669.923 )
+position = Vector2( 924.719, 839.2 )
 
 [node name="House" type="Area2D" parent="."]
-position = Vector2( 927.776, 821.002 )
+position = Vector2( 919.903, 826.907 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="House"]
-position = Vector2( 4.32849, 170.261 )
-shape = SubResource( 7 )
+position = Vector2( 9.1825, 190.47 )
+shape = SubResource( 1 )
 
 [node name="Wall" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
-position = Vector2( 358.807, 1076.42 )
-shape = SubResource( 1 )
+position = Vector2( 358.807, 1100.04 )
+shape = SubResource( 2 )
 
 [node name="Wall2" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
 position = Vector2( 662.413, 366.023 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Wall3" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3"]
 position = Vector2( -18.0182, 592.197 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Wall4" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wall4"]
 position = Vector2( 1345.36, 583.788 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Obstacle" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle"]
 position = Vector2( 1122.63, 381.65 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Obstacle2" type="StaticBody2D" parent="."]
 position = Vector2( 155.211, 549.619 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle2"]
 position = Vector2( 17.0095, -86.1105 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Obstacle3" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle3"]
 position = Vector2( 396.533, 499.654 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="Obstacle4" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle4"]
 position = Vector2( 810.076, 972.729 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="Obstacle5" type="StaticBody2D" parent="."]
+position = Vector2( 1.96826, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle5"]
 position = Vector2( 1046.08, 969.54 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 [connection signal="body_entered" from="House" to="." method="_on_House_body_entered"]
