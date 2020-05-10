@@ -7,6 +7,7 @@ extends Node
 var rng
 var InventoryScript = preload("res://Scripts/Inventory.gd")
 var ItemScript = preload("res://Entities/Item.tscn")
+var priority
 var flavour_display
 var activeInventories = []
 var inventory_open: bool = false
@@ -20,8 +21,9 @@ var itemInRange: bool = false
 func _ready():
 	rng = RandomNumberGenerator.new()
 	Inventory = get_node("Inventory")
-	ItemGrab = get_node("RandomDrop")
+	ItemGrab = get_node("Drag Layer/RandomDrop")
 	flavour_display = get_node("Flavour")
+	priority = get_node("Drag Layer")
 	ItemGrab.fillable = false
 	pass # Replace with function body.
 
@@ -102,7 +104,7 @@ func togglePickup(state: bool):
 
 func _on_ItemRange_body_exited(body):
 	remove_item_from_list(body)
-	
+
 
 func remove_item_from_list(body):
 	var pos = itemList.find(body)

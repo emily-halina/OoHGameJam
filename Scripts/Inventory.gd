@@ -49,7 +49,8 @@ func check_if_place():
 		if(sametile and check_valid_placement(location, inventory_list.find(gv.focusedItem)) or check_valid_placement(location,-1)):
 			gv.focusedItem.inventory.remove_item(gv.focusedItem.inventory.inventory_list.find(gv.focusedItem))
 			add_item([location[0]-gv.focusedItem.dragTile[0],location[1]-gv.focusedItem.dragTile[1]],gv.focusedItem)
-			return true
+			if(!sametile):
+				return true
 	return false			
 
 func check_valid_placement(selectedTile: Array, okIndex)-> bool:
