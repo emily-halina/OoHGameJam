@@ -65,7 +65,7 @@ func _on_ComfortSensor_area_entered(area):
 		if !gv.collected_items.has(i):
 			gv.collected_items.append(i)
 	if len(gv.collected_items) >= 5:
-		print('yay!')
+		get_tree().change_scene('res://win.tscn')
 	cozy = true
 
 
