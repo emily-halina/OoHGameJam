@@ -30,7 +30,7 @@ func checkItem():
 	gv.focusedItem.drag = false
 	gv.focusedItem = null
 	
-	if ItemGrab.isEmptyGrid():
+	if itemInRange and ItemGrab.isEmptyGrid():
 		togglePickup(false)
 		Item.queue_free()
 	
