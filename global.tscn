@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://forest.wav" type="AudioStream" id=1]
-[ext_resource path="res://quirkyandcuteroom.wav" type="AudioStream" id=2]
+[ext_resource path="res://forest_song.gd" type="Script" id=2]
+[ext_resource path="res://quirkyandcuteroom.wav" type="AudioStream" id=3]
+[ext_resource path="res://room_song.gd" type="Script" id=4]
 
 [node name="global" type="Node2D"]
 
@@ -9,9 +11,13 @@
 position = Vector2( 484, 292 )
 stream = ExtResource( 1 )
 volume_db = -2.0
+script = ExtResource( 2 )
 
 [node name="room_song" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 484, 292 )
-stream = ExtResource( 2 )
+stream = ExtResource( 3 )
 volume_db = -2.0
 attenuation = 0.0717938
+script = ExtResource( 4 )
+[connection signal="finished" from="forest_song" to="forest_song" method="_on_forest_song_finished"]
+[connection signal="finished" from="room_song" to="room_song" method="_on_room_song_finished"]
