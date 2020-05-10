@@ -12,7 +12,7 @@ var inventory_tiles
 export var main_inventory: bool = false
 var inventory_list =[]
 var ItemScript = preload("res://Scripts/InventoryTile.gd")
-
+var spawned: bool = false
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
@@ -24,7 +24,7 @@ func _ready():
 		for i in range(gv.inventory_list.size()):
 			print(gv.inventory_list[i])
 			add_item(gv.inventory_list[i][0],ItemScript.new(gv.inventory_list[i][1]))
-	
+	spawned = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -111,7 +111,7 @@ func add_item(inventorySlot: Array, item):
 	item.originNode = inventorySlot
 	inventory_list.append(item)
 	var index = inventory_list.size()-1
-	if(main_inventory):
+	if(main_inventory and spawned):
 		gv.inventory_list.append([item.originNode,item.ID])
 	
 	#Adds to the hierarchy and set position

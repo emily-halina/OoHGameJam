@@ -60,6 +60,12 @@ func get_direction()-> Vector2:
 func _on_ComfortSensor_area_entered(area):
 	print("Entry")
 	get_node("Sprite").set_modulate(Color(1,0,0))
+	var collect = inventory.drop_all()
+	for i in collect:
+		if !gv.collected_items.has(i):
+			gv.collected_items.append(i)
+	if len(gv.collected_items) >= 5:
+		print('yay!')
 	cozy = true
 
 

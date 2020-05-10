@@ -51,13 +51,16 @@ func checkItem():
 	
 	if itemInRange and ItemGrab.isEmptyGrid():
 		togglePickup(false)
-	
 	pass
 
 func drop_all():
 	var list_length = Inventory.inventory_list.size()
+	var id = null
+	var ids = []
 	for x in range(list_length):
-		dropItem(Inventory.inventory_list[list_length-1-x])
+		id = dropItem(Inventory.inventory_list[list_length-1-x])
+		ids.append(id)
+	return ids
 
 
 func dropItem(drop):
@@ -70,6 +73,7 @@ func dropItem(drop):
 	player.get_parent().add_child(newItem)
 	var offset = Vector2(rng.randf_range(-5,5),rng.randf_range(-5,5))
 	newItem.set_position(player.get_position()+offset)
+	return drop.ID
 	
 
 func _physics_process(delta):

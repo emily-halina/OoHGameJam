@@ -29,7 +29,20 @@ const ITEMS = {
 		"shape": [[1]],
 		'overworld': 'blanket'
 	},
-	
+	4:{
+		"icon": "res://m.png",
+		"flavour": 'mouse-y',
+		"comfort": 1000,
+		"shape":[[1]],
+		'overworld':'mouse'
+	},
+	5:{
+		"icon":"res://i.png",
+		"flavour":"i'm not a gnelf",
+		"comfort":3000,
+		"shape":[[1,1,1]],
+		'overworld':'gnome'
+	},
 	"error":{
 		"icon": "res://L.png",
 		"shape": [[0,0,1],[1,1,1]]
@@ -39,6 +52,7 @@ const ITEMS = {
 
 var comfort_meter = 1000
 
+var collected_items = []
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass

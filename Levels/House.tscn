@@ -46,9 +46,17 @@ position = Vector2( -14.5203, 534.024 )
 position = Vector2( 27.4272, 158.11 )
 itemID = 2
 
+[node name="Mouse" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1497.2, 858.31 )
+itemID = 4
+
 [node name="Quilt" parent="." instance=ExtResource( 3 )]
 position = Vector2( 316.22, 242.005 )
 itemID = 3
+
+[node name="Gnome" parent="." instance=ExtResource( 3 )]
+position = Vector2( -200.057, 895.417 )
+itemID = 5
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 863.947, 203.577 )
@@ -124,10 +132,10 @@ shape = SubResource( 7 )
 position = Vector2( 765.026, -696.669 )
 
 [node name="Enemy" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1041.53, 629.486 )
+position = Vector2( 835.019, 621.419 )
 
 [node name="Enemy3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 838.245, 840.836 )
+position = Vector2( 502.665, 847.289 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 6 )]
 position = Vector2( -3.93158, 902.144 )
