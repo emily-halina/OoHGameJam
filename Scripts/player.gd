@@ -1,13 +1,14 @@
 extends KinematicBody2D
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+
 var cozy = false
 export var speed = 300.0
 var _velocity = Vector2.ZERO
 var direction = Vector2.ZERO
+
+onready var sprite = get_node('Sprite')
+var animation = 'StaticFront'
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -24,6 +25,7 @@ func _physics_process(delta: float)-> void:
 	direction = get_direction()
 	_velocity = calculate_move_velocity(direction)
 	_velocity = move_and_slide(_velocity)
+	animation = set_animation(direction)
 	return
 
 
@@ -45,3 +47,27 @@ func _on_ComfortSensor_area_entered(area):
 func _on_ComfortSensor_area_exited(area):
 	get_node("Sprite").set_modulate(Color(0,0,1))
 	cozy = false
+
+func set_animation(direction):
+	var a = ''
+	# if player is moving, play walk animation
+	if direction != Vector2.ZERO:
+		a += 'Walk'
+		if direction.x == -1:
+			a += 'Left'
+		elif direction.x == 1:
+			a += 'Right'
+		if direction.y == 1:
+			a += 'Front'
+		elif direction.y == -1:
+			a += 'Back'
+	# if player stops, play static animation in correct direction
+	else:
+		# if the player is standing still, keep them facing the same way
+		if animation[0] == 'S':
+			a = animation
+		else:
+			a += 'Static'
+			a += animation.right(4)
+	sprite.play(a)
+	return a
