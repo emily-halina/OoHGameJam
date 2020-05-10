@@ -9,6 +9,7 @@ var inventory_height =400
 var tile_width = 4
 var tile_height = 4
 var inventory_tiles
+export var main_inventory: bool = false
 var inventory_list =[]
 var ItemScript = preload("res://Scripts/InventoryTile.gd")
 
@@ -19,6 +20,10 @@ func _ready():
 	print(rect_size)
 	#get_node("InventoryBackground").set_size(inventory_width,inventory_height)
 	inventory_tiles = create_array_2d(tile_width,tile_height)
+	if(main_inventory):
+		for i in range(gv.inventory_list.size()):
+			print(gv.inventory_list[i])
+			add_item(gv.inventory_list[i][0],ItemScript.new(gv.inventory_list[i][1]))
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -106,6 +111,8 @@ func add_item(inventorySlot: Array, item):
 	item.originNode = inventorySlot
 	inventory_list.append(item)
 	var index = inventory_list.size()-1
+	if(main_inventory):
+		gv.inventory_list.append([item.originNode,item.ID])
 	
 	#Adds to the hierarchy and set position
 	add_child_below_node(get_node("InventoryBackground"),item,false)
@@ -128,6 +135,8 @@ func remove_item(listslot: int):
 	#Slot shenanigans
 	var removed_item = inventory_list[listslot]
 	inventory_list.remove(listslot)
+	if(main_inventory):
+		gv.inventory_list.remove(listslot)
 	for x in range(tile_width):
 		for y in range(tile_height):
 			if inventory_tiles[x][y] == listslot:
@@ -143,6 +152,8 @@ func remove_item_object(obj):
 	var listslot = inventory_list.find(obj)
 	var removed_item = obj
 	inventory_list.remove(listslot)
+	if(main_inventory):
+		gv.inventory_list.remove(listslot)
 	for x in range(tile_width):
 		for y in range(tile_height):
 			if inventory_tiles[x][y] == listslot:

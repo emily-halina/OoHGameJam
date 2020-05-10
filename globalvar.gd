@@ -2,6 +2,7 @@ extends Node2D
 
 var hewo = 'world'
 var focusedItem = null
+var inventory_list = []
 #Store information about items here
 const ITEMS = {
 	
