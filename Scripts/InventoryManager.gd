@@ -30,10 +30,15 @@ func add_inventory(inventory):
 	add_child(inventory)
 
 func checkItem():
+	var c_Item = Item
 	var added = false
 	added = Inventory.check_if_place()
+	
 	if(!added):
 		added = ItemGrab.check_if_place()
+	else:
+		c_Item.queue_free()
+		remove_item_from_list(Item)
 	
 	if(!added and !itemInRange):
 		dropItem(gv.focusedItem)
@@ -43,8 +48,6 @@ func checkItem():
 	gv.focusedItem = null
 	
 	if itemInRange and ItemGrab.isEmptyGrid():
-		Item.queue_free()
-		remove_item_from_list(Item)
 		togglePickup(false)
 	
 	pass
@@ -99,13 +102,14 @@ func togglePickup(state: bool):
 
 func _on_ItemRange_body_exited(body):
 	remove_item_from_list(body)
-	togglePickup(false)
+	
 
 func remove_item_from_list(body):
 	var pos = itemList.find(body)
 	itemList.remove(pos)
 	if(itemList.size()<=0):
 		Item = null
+		togglePickup(false)
 	else: if(pos == 0):
 		Item = itemList[0]
 		ItemGrab.resize_inventory_and_add(4,4,Item.itemID)
