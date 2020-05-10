@@ -2,7 +2,6 @@ extends Node2D
 
 var hewo = 'world'
 var focusedItem = null
-
 #Store information about items here
 const ITEMS = {
 	
@@ -33,11 +32,11 @@ const ITEMS = {
 	
 }
 
+var comfort_meter = 1000
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	gs.get_node('room_song').play()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

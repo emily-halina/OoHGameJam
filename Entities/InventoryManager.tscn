@@ -19,12 +19,11 @@ margin_right = 203.989
 margin_bottom = 6.68079
 
 [node name="Flavour" type="Label" parent="."]
-margin_left = 626.374
-margin_top = 407.401
-margin_right = 666.374
-margin_bottom = 421.401
+margin_left = 308.348
+margin_top = 5.41547
+margin_right = 348.348
+margin_bottom = 19.4155
 rect_scale = Vector2( 10.0061, 4.92001 )
-text = "test"
 uppercase = true
 __meta__ = {
 "_edit_use_anchors_": false
