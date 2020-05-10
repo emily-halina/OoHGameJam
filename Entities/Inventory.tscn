@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Inventory.gd" type="Script" id=1]
+
+[node name="Inventory" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -524.0
+margin_bottom = -100.0
+mouse_filter = 1
+mouse_default_cursor_shape = 6
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InventoryBackground" type="Panel" parent="."]
+margin_right = 500.0
+margin_bottom = 500.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="gui_input" from="." to="." method="_on_Inventory_gui_input"]
+[connection signal="gui_input" from="." to="." method="_on_InventoryManager_gui_input"]
