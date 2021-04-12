@@ -2,11 +2,9 @@
 "team 2" game jam game :)
 
 
-made with love by Ahmad, Boris, Eric and Stephanie
+made with love by Ahmad, Boris, Emily and Stephanie
 
-all good code by Ahmad and Boris
-
-all bad code and music by Eric
+code by Ahmad, Boris (young), and Emily
 
 all art by Stephanie
 
